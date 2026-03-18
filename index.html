@@ -3,227 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Watswenje Kerlvin | Web Designer</title>
+
+<title>Web Designer in Kenya | Watswenje Kerlvin</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+
+html{scroll-behavior:smooth;}
+
+body{
+background:url('desktop.jpg') no-repeat center/cover;
+color:white;
+padding-top:80px;
 }
 
-html { scroll-behavior: smooth; }
-
-body {
-  color: white;
-  padding-top: 80px;
-  background: linear-gradient(rgba(15,23,42,0.5), rgba(15,23,42,0.6)),
-              url("desktop.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-section {
-  padding: 100px 20px;
-  text-align: center;
-  scroll-margin-top: 100px;
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(15,23,42,0.65);
+z-index:-1;
 }
 
 /* NAV */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 30px;
-  position: fixed;
-  width: 100%;
-  background: rgba(15,23,42,0.85);
-  z-index: 1000;
+nav{
+display:flex;
+justify-content:space-between;
+padding:15px 30px;
+position:fixed;
+width:100%;
+background:#0f172af2;
+z-index:1000;
 }
 
-nav ul {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 15px;
-  border-radius: 20px;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  background: #38bdf8;
-  color: black;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-@media(max-width:768px){
-  .menu-toggle { display:block; }
-
-  nav ul {
-    display:none;
-    flex-direction:column;
-    position:absolute;
-    top:60px;
-    right:0;
-    background:#0f172a;
-    width:200px;
-  }
-
-  nav ul.show { display:flex; }
-}
+nav ul{display:flex;gap:20px;list-style:none;}
+nav a{color:white;text-decoration:none;font-weight:bold;}
+nav a:hover{color:#38bdf8;}
 
 /* HERO */
-.hero {
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+gap:10px;
 }
 
-.profile-img {
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  border:4px solid #38bdf8;
-  margin-bottom: 20px;
+.profile-pic{
+width:150px;
+height:150px;
+border-radius:50%;
+border:4px solid #38bdf8;
 }
 
-.btn {
-  padding:12px 25px;
-  background:#38bdf8;
-  color:black;
-  border-radius:25px;
-  text-decoration:none;
-  margin-top:20px;
+/* BUTTON */
+.btn{
+padding:10px 20px;
+background:#38bdf8;
+color:black;
+border-radius:5px;
+text-decoration:none;
+font-weight:bold;
 }
 
-/* SKILLS */
-.skills-list {
-  list-style: none;
-  max-width: 400px;
-  margin: 30px auto;
-  text-align: left;
-}
-
-.skills-list li {
-  background: rgba(30,41,59,0.7);
-  margin: 10px 0;
-  padding: 12px 15px;
-  border-radius: 10px;
-  position: relative;
-  padding-left: 40px;
-}
-
-.skills-list li::before {
-  content: "✔";
-  position: absolute;
-  left: 15px;
-  color: #38bdf8;
-  font-weight: bold;
+/* SECTIONS */
+section{
+padding:80px 20px;
+scroll-margin-top:100px;
 }
 
 /* PROJECTS */
-.projects-container {
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
+.projects-container{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
-.card {
-  background:rgba(30,41,59,0.6);
-  padding:20px;
-  width:260px;
-  border-radius:10px;
-  transition: 0.3s;
-  text-decoration: none;
-  color: white;
+.card{
+width:280px;
+background:#1e293b;
+padding:15px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+transition:.3s;
 }
 
-.card:hover {
-  transform: translateY(-8px) scale(1.03);
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
 }
 
-.card img {
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-bottom:10px;
+.card:hover{transform:translateY(-10px);}
+
+/* FORM */
+form{
+background:white;
+color:black;
+padding:25px;
+border-radius:12px;
+max-width:420px;
+margin:20px auto;
+display:flex;
+flex-direction:column;
+gap:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* CONTACT */
-#contact a {
-  color:#22c55e;
-  font-weight:bold;
+input,textarea{
+width:100%;
+padding:12px;
+border:2px solid #ccc;
+border-radius:8px;
+font-weight:bold;
+outline:none;
 }
 
-form {
-  max-width:400px;
-  margin:30px auto;
-  background:white;
-  padding:25px;
-  border-radius:12px;
+/* GLOW */
+input:focus, textarea:focus{
+border-color:#38bdf8;
+box-shadow:0 0 10px #38bdf8;
+animation:glow 1s infinite alternate;
 }
 
-.form-group {
-  position: relative;
-  margin-bottom: 20px;
+@keyframes glow{
+from{box-shadow:0 0 5px #38bdf8;}
+to{box-shadow:0 0 15px #38bdf8;}
 }
 
-.form-group input,
-.form-group textarea {
-  width:100%;
-  padding:14px;
-  border-radius:8px;
-  border:2px solid #ccc;
-  font-weight:bold;
-  outline:none;
+/* BUTTON */
+button{
+padding:12px;
+background:#22c55e;
+color:white;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
 }
 
-.form-group label {
-  position:absolute;
-  left:12px;
-  top:14px;
-  background:white;
-  padding:0 5px;
-  color:gray;
-  transition:0.3s;
+button:hover{background:#16a34a;}
+
+/* LOADER */
+.loader{
+display:none;
+width:25px;
+height:25px;
+border:3px solid #ccc;
+border-top:3px solid #22c55e;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin:auto;
 }
 
-.form-group input:focus + label,
-.form-group input:valid + label,
-.form-group textarea:focus + label,
-.form-group textarea:valid + label {
-  top:-10px;
-  font-size:12px;
-  color:#38bdf8;
+@keyframes spin{
+to{transform:rotate(360deg);}
 }
 
-button {
-  padding:12px;
-  background:#38bdf8;
-  border:none;
-  border-radius:25px;
+/* SUCCESS MESSAGE */
+.success{
+display:none;
+background:#22c55e;
+color:white;
+padding:15px;
+margin:20px auto;
+text-align:center;
+border-radius:10px;
+max-width:420px;
+font-weight:bold;
+animation:fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(-10px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* CONTACT LINKS */
+.contact-links{text-align:center;}
+.contact-links a{
+display:block;
+color:#22c55e;
+margin-top:5px;
+font-weight:bold;
 }
 
 /* FOOTER */
-footer {
-  text-align:center;
-  padding:20px;
-  background:#0f172a;
+footer{
+text-align:center;
+padding:20px;
+color:#22c55e;
 }
 </style>
 </head>
@@ -231,98 +205,104 @@ footer {
 <body>
 
 <nav>
-  <h2>Kerlvin</h2>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <ul id="navLinks">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<h2>Kerlvin</h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Work</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
-<section id="home" class="hero">
-  <img src="profile.jpg" class="profile-img">
-  <h1>Watswenje Kerlvin</h1>
-  <p>Creative Web Designer</p>
-  <a href="#projects" class="btn">View Work</a>
+<section class="hero">
+<img src="profile.jpg" class="profile-pic">
+<h1>Watswenje Kerlvin</h1>
+<p>Web Designer in Kenya</p>
+<a href="#projects" class="btn">View Work</a>
 </section>
 
 <section id="about">
-  <h2>About Me</h2>
-  <p>I design modern, responsive websites that help businesses grow.</p>
-</section>
-
-<section>
-  <h2>My Skills</h2>
-  <ul class="skills-list">
-    <li>Web Design</li>
-    <li>Responsive Design</li>
-    <li>UI/UX Design</li>
-    <li>Website Editing</li>
-    <li>Computer Applications</li>
-    <li>Creative Design Thinking</li>
-  </ul>
+<h2>About</h2>
+<p>I create modern responsive websites for businesses.</p>
 </section>
 
 <section id="projects">
-  <h2>My Work</h2>
+<h2>My Work</h2>
+<div class="projects-container">
 
-  <div class="projects-container">
+<a href="#contact" class="card">
+<img src="https://images.pexels.com/photos/3182763/pexels-photo-3182763.jpeg">
+<h3>Business Website</h3>
+</a>
 
-    <a href="#contact" class="card">
-      <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d">
-      <h3>Business Website</h3>
-    </a>
+<a href="#contact" class="card">
+<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400">
+<h3>Landing Page</h3>
+</a>
 
-    <a href="#contact" class="card">
-      <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d">
-      <h3>Landing Page</h3>
-    </a>
+<a href="#contact" class="card">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400">
+<h3>Portfolio</h3>
+</a>
 
-    <a href="#contact" class="card">
-      <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698">
-      <h3>Portfolio Website</h3>
-    </a>
-
-  </div>
+</div>
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
+<h2 style="text-align:center;">Contact Me</h2>
 
-  <p>Email: <a href="mailto:watswenjekerlvin@gmail.com">watswenjekerlvin@gmail.com</a></p>
-  <p>WhatsApp: <a href="https://wa.me/254791942260">Chat with me</a></p>
+<div class="success" id="successMsg">
+✅ Message Sent Successfully!
+</div>
 
-  <form action="https://formsubmit.co/watswenjekerlvin@gmail.com" method="POST">
+<form id="form" action="https://formsubmit.co/watswenjekerlvin@gmail.com" method="POST">
 
-    <div class="form-group">
-      <input type="text" required>
-      <label>Your Name</label>
-    </div>
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Your Message" required></textarea>
 
-    <div class="form-group">
-      <input type="email" required>
-      <label>Your Email</label>
-    </div>
+<button type="submit" id="sendBtn">Send Message</button>
+<div class="loader" id="loader"></div>
 
-    <div class="form-group">
-      <textarea required></textarea>
-      <label>Your Message</label>
-    </div>
+<input type="hidden" name="_captcha" value="false">
 
-    <button type="submit">Send Message</button>
-  </form>
+</form>
+
+<div class="contact-links">
+<a href="mailto:watswenjekerlvin@gmail.com">Email Me</a>
+<a href="https://wa.me/254791942260" target="_blank">Chat on WhatsApp</a>
+</div>
+
 </section>
 
 <footer>
-  <p>watswenjekerlvin@gmail.com</p>
+watswenjekerlvin@gmail.com
 </footer>
 
 <script>
-function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("show");
-}
+window.onload = () => window.scrollTo(0,0);
+
+const form = document.getElementById("form");
+const loader = document.getElementById("loader");
+const btn = document.getElementById("sendBtn");
+const success = document.getElementById("successMsg");
+
+form.addEventListener("submit", function(){
+btn.style.display="none";
+loader.style.display="block";
+
+setTimeout(()=>{
+loader.style.display="none";
+success.style.display="block";
+form.reset();
+
+setTimeout(()=>{
+success.style.display="none";
+btn.style.display="block";
+},4000);
+
+},2000);
+});
 </script>
 
 </body>
