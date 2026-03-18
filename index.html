@@ -136,7 +136,7 @@ from{box-shadow:0 0 5px #38bdf8;}
 to{box-shadow:0 0 15px #38bdf8;}
 }
 
-/* GREEN BUTTON */
+/* BUTTON */
 button{
 padding:12px;
 background:#22c55e;
@@ -266,6 +266,7 @@ color:#22c55e;
 
 <input type="hidden" name="_subject" value="New Portfolio Message">
 <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
 
 </form>
 
@@ -296,6 +297,9 @@ loader.style.display="block";
 
 fetch("https://formsubmit.co/ajax/watswenjekerlvin@gmail.com", {
 method:"POST",
+headers:{
+'Accept':'application/json'
+},
 body:new FormData(form)
 })
 .then(res=>res.json())
