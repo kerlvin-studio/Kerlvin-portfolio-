@@ -124,16 +124,9 @@ font-weight:bold;
 outline:none;
 }
 
-/* GLOW */
 input:focus, textarea:focus{
 border-color:#38bdf8;
 box-shadow:0 0 10px #38bdf8;
-animation:glow 1s infinite alternate;
-}
-
-@keyframes glow{
-from{box-shadow:0 0 5px #38bdf8;}
-to{box-shadow:0 0 15px #38bdf8;}
 }
 
 /* BUTTON */
@@ -163,19 +156,6 @@ margin:auto;
 
 @keyframes spin{
 to{transform:rotate(360deg);}
-}
-
-/* SUCCESS */
-.success{
-display:none;
-background:#22c55e;
-color:white;
-padding:15px;
-margin:20px auto;
-text-align:center;
-border-radius:10px;
-max-width:420px;
-font-weight:bold;
 }
 
 /* CONTACT LINKS */
@@ -251,11 +231,7 @@ color:#22c55e;
 <section id="contact">
 <h2 style="text-align:center;">Contact Me</h2>
 
-<div class="success" id="successMsg">
-✅ Message Sent Successfully!
-</div>
-
-<form id="form">
+<form id="form" action="https://formsubmit.co/watswenjekerlvin@gmail.com" method="POST">
 
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Your Email" required>
@@ -267,6 +243,7 @@ color:#22c55e;
 <input type="hidden" name="_subject" value="New Portfolio Message">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://kerlvinstudio.github.io/">
 
 </form>
 
@@ -287,37 +264,10 @@ window.onload = () => window.scrollTo(0,0);
 const form = document.getElementById("form");
 const loader = document.getElementById("loader");
 const btn = document.getElementById("sendBtn");
-const success = document.getElementById("successMsg");
 
-form.addEventListener("submit", function(e){
-e.preventDefault();
-
+form.addEventListener("submit", () => {
 btn.style.display="none";
 loader.style.display="block";
-
-fetch("https://formsubmit.co/ajax/watswenjekerlvin@gmail.com", {
-method:"POST",
-headers:{
-'Accept':'application/json'
-},
-body:new FormData(form)
-})
-.then(res=>res.json())
-.then(()=>{
-loader.style.display="none";
-success.style.display="block";
-form.reset();
-
-setTimeout(()=>{
-success.style.display="none";
-btn.style.display="block";
-},4000);
-})
-.catch(()=>{
-loader.style.display="none";
-btn.style.display="block";
-alert("❌ Error sending message");
-});
 });
 </script>
 
