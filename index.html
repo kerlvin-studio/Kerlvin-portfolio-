@@ -136,7 +136,7 @@ from{box-shadow:0 0 5px #38bdf8;}
 to{box-shadow:0 0 15px #38bdf8;}
 }
 
-/* BUTTON */
+/* GREEN BUTTON */
 button{
 padding:12px;
 background:#22c55e;
@@ -165,7 +165,7 @@ margin:auto;
 to{transform:rotate(360deg);}
 }
 
-/* SUCCESS MESSAGE */
+/* SUCCESS */
 .success{
 display:none;
 background:#22c55e;
@@ -176,12 +176,6 @@ text-align:center;
 border-radius:10px;
 max-width:420px;
 font-weight:bold;
-animation:fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(-10px);}
-to{opacity:1;transform:translateY(0);}
 }
 
 /* CONTACT LINKS */
@@ -204,6 +198,7 @@ color:#22c55e;
 
 <body>
 
+<!-- NAV -->
 <nav>
 <h2>Kerlvin</h2>
 <ul>
@@ -214,6 +209,7 @@ color:#22c55e;
 </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 <img src="profile.jpg" class="profile-pic">
 <h1>Watswenje Kerlvin</h1>
@@ -221,13 +217,16 @@ color:#22c55e;
 <a href="#projects" class="btn">View Work</a>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
 <h2>About</h2>
 <p>I create modern responsive websites for businesses.</p>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
 <h2>My Work</h2>
+
 <div class="projects-container">
 
 <a href="#contact" class="card">
@@ -248,6 +247,7 @@ color:#22c55e;
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
 <h2 style="text-align:center;">Contact Me</h2>
 
@@ -255,7 +255,7 @@ color:#22c55e;
 ✅ Message Sent Successfully!
 </div>
 
-<form id="form" action="https://formsubmit.co/watswenjekerlvin@gmail.com" method="POST">
+<form id="form">
 
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Your Email" required>
@@ -264,7 +264,8 @@ color:#22c55e;
 <button type="submit" id="sendBtn">Send Message</button>
 <div class="loader" id="loader"></div>
 
-<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New Portfolio Message">
+<input type="hidden" name="_template" value="table">
 
 </form>
 
@@ -287,11 +288,18 @@ const loader = document.getElementById("loader");
 const btn = document.getElementById("sendBtn");
 const success = document.getElementById("successMsg");
 
-form.addEventListener("submit", function(){
+form.addEventListener("submit", function(e){
+e.preventDefault();
+
 btn.style.display="none";
 loader.style.display="block";
 
-setTimeout(()=>{
+fetch("https://formsubmit.co/ajax/watswenjekerlvin@gmail.com", {
+method:"POST",
+body:new FormData(form)
+})
+.then(res=>res.json())
+.then(()=>{
 loader.style.display="none";
 success.style.display="block";
 form.reset();
@@ -300,8 +308,12 @@ setTimeout(()=>{
 success.style.display="none";
 btn.style.display="block";
 },4000);
-
-},2000);
+})
+.catch(()=>{
+loader.style.display="none";
+btn.style.display="block";
+alert("❌ Error sending message");
+});
 });
 </script>
 
